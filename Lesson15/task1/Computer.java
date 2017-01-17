@@ -6,7 +6,7 @@ public class Computer {
 	int hardDiskMemory; // Mb
 	int freeMemory; // Mb
 	String operationSystem;
-	String name;
+	int ID;
 
 	void changeOperationSystem(String newOperationSystem) {
 		operationSystem = newOperationSystem;
