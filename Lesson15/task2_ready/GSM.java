@@ -24,7 +24,8 @@ public class GSM {
 	}
 
 	void call(GSM reciever, double duration) {
-		if (this.hasSimCard && duration > 0 && reciever.hasSimCard && !this.simMobileNumber.equals(reciever.simMobileNumber)) {
+		if (this.hasSimCard && duration > 0 && reciever.hasSimCard
+				&& !this.simMobileNumber.equals(reciever.simMobileNumber)) {
 			Call calling = new Call();
 			calling.reciever = reciever;
 			calling.caller = this;
@@ -33,7 +34,7 @@ public class GSM {
 			reciever.lastIncomingCall = calling;
 			this.outgoingCallsDuration += calling.duration;
 			System.out.println(this.model + " with number:" + this.simMobileNumber + " has next details:");
-			System.out.println("All spent money - " + getSumForCall(calling.priceForAMinute) + " BGN");
+			System.out.println("All spent money - " + getSumForCall() + " BGN");
 			printInfoForTheLastOutgoingCall();
 			printInfoForTheLastIncomingCall();
 		} else {
@@ -42,8 +43,9 @@ public class GSM {
 		}
 	}
 
-	double getSumForCall(double price) {
-		return outgoingCallsDuration * price;
+	// double getSumForCall(double price) {
+	double getSumForCall() {
+		return outgoingCallsDuration * Call.priceForAMinute;
 	}
 
 	void printInfoForTheLastOutgoingCall() {
