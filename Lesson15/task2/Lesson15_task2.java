@@ -9,7 +9,12 @@ public class Lesson15_task2 {
 		GSM nokia = new GSM();
 		nokia.model = "Nokia Lumia";
 		nokia.insertSimCard("0883111111");
+		
+		nokia.call(nokia, 3.5);
+		nokia.call(samsung, 2.1);
+		samsung.call(nokia, 7.1);
 
+		/*
 		printGsmDetails(samsung);
 		printGsmDetails(nokia);
 
@@ -40,6 +45,7 @@ public class Lesson15_task2 {
 
 		printGsmDetails(samsung);
 		printGsmDetails(nokia);
+		*/
 
 	}
 

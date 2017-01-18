@@ -1,9 +1,9 @@
 
 public class Call {
 
-	double priceForAMinute = 2.5; // lv.
-	GSM caller;
-	GSM reciever;
+	static double priceForAMinute = 1; // lv.
+	String caller;
+	String reciever;
 	double duration; // minutes
 
 }

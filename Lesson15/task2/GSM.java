@@ -30,6 +30,7 @@ public class GSM {
 			outgoingCallsDuration += duration;
 			printInfoForTheLastOutgoingCall();
 			printInfoForTheLastIncomingCall();
+			System.out.println("Spent money for all calls - " +getSumForCall());
 		} else {
 			System.out.println("Impossible call!");
 			System.out.println();
@@ -48,5 +49,9 @@ public class GSM {
 			System.out.println(model + ": last incoming call - " + lastIncomingCall);
 			System.out.println();
 		}
+	}
+
+	double getSumForCall() {
+		return outgoingCallsDuration * Call.priceForAMinute;
 	}
 }
