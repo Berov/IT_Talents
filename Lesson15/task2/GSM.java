@@ -55,3 +55,5 @@ public class GSM {
 		return outgoingCallsDuration * Call.priceForAMinute;
 	}
 }
+
+//

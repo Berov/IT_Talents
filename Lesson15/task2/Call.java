@@ -7,3 +7,5 @@ public class Call {
 	double duration; // minutes
 
 }
+
+//

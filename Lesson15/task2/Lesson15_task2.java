@@ -67,3 +67,5 @@ public class Lesson15_task2 {
 		System.out.println();
 	}
 }
+
+//
