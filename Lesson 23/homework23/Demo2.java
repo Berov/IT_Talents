@@ -19,7 +19,7 @@ public class Demo2 {
 
 		for (int i = 0; i < myText.length(); i++) {
 			// Works only with Latin letters!!!
-			if (charOutOfRange(myText, i)) {
+			if (isCharOutOfRange(myText, i)) {
 				continue;
 			}
 			charCounter++;
@@ -61,7 +61,7 @@ public class Demo2 {
 		sc.close();
 	}
 
-	private static boolean charOutOfRange(String txt, int i) {
+	private static boolean isCharOutOfRange(String txt, int i) {
 		int maxAsciiCode = 90;
 		int minAsciiCode = 65;
 		if (charAtMyText(txt, i).charAt(0) < minAsciiCode || charAtMyText(txt, i).charAt(0) > maxAsciiCode) {
