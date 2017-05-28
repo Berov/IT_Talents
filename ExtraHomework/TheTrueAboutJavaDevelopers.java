@@ -1,4 +1,4 @@
-import java.util.Scanner;
+Ôªøimport java.util.Scanner;
 
 public class TheTrueAboutJavaDevelopers {
 
@@ -10,7 +10,7 @@ public class TheTrueAboutJavaDevelopers {
 		System.out.println("Please enter the word ANDROID");
 		answer = sc.nextLine();
 
-		if (answer.equals("android") || answer.equals("‡Ì‰ÓË‰")) {
+		if (answer.equals("android") || answer.equals("–∞–Ω–¥—Ä–æ–∏–¥")) {
 			System.out.println("Maybe this guy is smart.");
 		} else {
 			System.out.println("Maybe this guy isn't too smart. Too bad.");
@@ -18,7 +18,7 @@ public class TheTrueAboutJavaDevelopers {
 		}
 
 		if (!someGuyIsSmart) {
-			System.out.println("Think about the word Java/Ê‡·‡ especially if you wanna become a Java developer!");
+			System.out.println("Think about the word Java/–∂–∞–±–∞ especially if you wanna become a Java developer!");
 		}
 
 		sc.close();
