@@ -17,7 +17,7 @@ public class Task_09 {
 		System.out.println("Моля въведете друго двуцифрено число!");
 		int b = sc.nextInt();
 
-		if (a < 10 || a > 99 | b < 10 || b > 99) {
+		if (a < 10 || a > 99 || b < 10 || b > 99) {
 			System.out.println("Има число, което не е двуцифрено!");
 		} else if ((a * b) % 2 == 0) {
 			System.out.println("Произведението на " + a + " и " + b + " е " + (a * b) + " и е четно");

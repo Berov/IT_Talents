@@ -15,7 +15,7 @@ public class Task_08 {
 
 		System.out.println("моля въведете четирицифрено число в интервала 1000 - 9999!");
 		int number = sc.nextInt();
-		if (number >= 1000 || number <= 9999) {
+		if (number >= 1000 && number <= 9999) {
 
 			int a = number / 1000;
 			int b = (number - a * 1000) / 100;
