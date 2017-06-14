@@ -53,4 +53,3 @@ public class Task_15 {
 		sc.close();
 	}
 }
-// :)
