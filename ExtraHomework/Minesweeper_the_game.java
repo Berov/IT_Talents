@@ -20,7 +20,7 @@ public class Minesweeper_the_game {
 			System.out.println("1 - Beginner     ( 8  X  8, 10 mines)");
 			System.out.println("2 - Intermediate ( 16 X 16, 49 mines)");
 			System.out.println("3 - Expert       ( 30 X 16, 99 mines)");
-			System.out.println("4 - Custom       ( 30 X 30, you chois the nuber of mines)");
+			System.out.println("4 - Custom       ( 30 X 30, you choice the nuber of mines)");
 			System.out.println("Enter a level:");
 			difficulty = sc.nextLine().charAt(0);
 			clearScreen();
