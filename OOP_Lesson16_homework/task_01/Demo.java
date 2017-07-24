@@ -5,11 +5,13 @@ import java.util.Random;
 public class Demo {
 
 	public static void main(String[] args) {
+		// user values--------------------------
 		byte workingHoursPerDay = 8; // 1 or more but no more than maxHoursForStrike!!! Or else... :)
 		int numberOfEmployees = 4; // 1 or more
 		int numberOfTasks = 5; // 0 or more
 		int maxHoursPerTask = 34; // 1 or more
 		byte maxHoursForStrike = 9; // more than 1 but less than 17! Or else... ;)
+		// end of user values-------------------
 
 		if (!(maxHoursForStrike < 2 || maxHoursForStrike > 16)) {
 			if (!(numberOfEmployees < 1 || numberOfTasks < 0 || maxHoursPerTask < 1 || workingHoursPerDay < 1 || workingHoursPerDay > maxHoursForStrike)) {
