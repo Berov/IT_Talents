@@ -1,6 +1,6 @@
 package InstanceOfTest;
 
-public class Dostavchik {
+public abstract class Dostavchik {
 	String name;
 	private int age;
 
@@ -10,5 +10,4 @@ public class Dostavchik {
 		this.age = age;
 		System.out.println(" - Construktor for abstract class Dostavchik");
 	}
-
 }
