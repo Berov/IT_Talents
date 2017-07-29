@@ -9,5 +9,4 @@ NaDrebno extends Dostavchik {
 		super(name, age);
 		System.out.println(name + " е доставчик на дребно и има отстъпка " + otstupka);
 	}
-
 }

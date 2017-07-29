@@ -7,5 +7,4 @@ public class NaEdro extends Dostavchik {
 		super(name, age);
 		System.out.println(name + " е доставчик на едро и има отстъпка " + otstupka);
 	}
-
 }
