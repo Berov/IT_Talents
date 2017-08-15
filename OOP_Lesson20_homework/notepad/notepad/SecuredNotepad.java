@@ -8,7 +8,12 @@ public class SecuredNotepad extends SimpleNotepad {
 
 	public SecuredNotepad(int numberOfPages, String name, String password) {
 		super(numberOfPages, name);
-		setPassword(password);
+		if (password != null && !password.isEmpty()) {
+			setPassword(password);
+		} else {
+			setPassword("");
+		}
+
 	}
 
 	@Override
@@ -52,16 +57,13 @@ public class SecuredNotepad extends SimpleNotepad {
 	}
 
 	private void setPassword(String password) {
-		if (password.length() >= 5 && password.matches(".*[a-z].*") && password.matches(".*[A-Z].*")
-				&& password.matches(".*[0-9].*")) {
+		if (password.length() >= 5 && password.matches(".*[a-z].*") && password.matches(".*[A-Z].*") && password.matches(".*[0-9].*")) {
 			this.password = password;
 		} else {
 			do {
-				System.out.println(
-						"Enter a better pass - 5 letters and more, capital letters, small letters and numbers...");
+				System.out.println("Enter a better pass - 5 letters and more, capital letters, small letters and numbers...");
 				password = sc.nextLine();
-			} while (!(password.length() >= 5) || !password.matches(".*[a-z].*")
-					|| !password.matches(".*[A-Z].*") || !password.matches(".*[0-9].*"));
+			} while (!(password.length() >= 5) || !password.matches(".*[a-z].*") || !password.matches(".*[A-Z].*") 	|| !password.matches(".*[0-9].*"));
 			this.password = password;
 		}
 	}
@@ -70,7 +72,7 @@ public class SecuredNotepad extends SimpleNotepad {
 	public void searchWord(String word) {
 		System.out.print("To search a word ");
 		if (checkPass()) {
-		super.searchWord(word);
+			super.searchWord(word);
 		}
 	}
 
@@ -78,7 +80,7 @@ public class SecuredNotepad extends SimpleNotepad {
 	public void printAllPagesWithDigits() {
 		System.out.print("To print all pages with digits ");
 		if (checkPass()) {
-		super.printAllPagesWithDigits();
+			super.printAllPagesWithDigits();
 		}
 	}
 

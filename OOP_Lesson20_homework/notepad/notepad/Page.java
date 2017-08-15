@@ -17,7 +17,12 @@ class Page {
 	}
 
 	void addPageText(String text) {
-		this.text = this.text + text;
+		if (!text.isEmpty() && text != null) {
+			this.text = this.text + text;
+		} else {
+			System.out.println("You didn't add any text!");
+		}
+
 	}
 
 	void deletePageText() {
