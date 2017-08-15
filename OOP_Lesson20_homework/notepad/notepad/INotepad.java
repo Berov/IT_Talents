@@ -1,6 +1,6 @@
 package notepad.notepad;
 
-interface INotepad {
+public interface INotepad {
 
 	void addTextToPage(String text, int number);
 
