@@ -2,6 +2,9 @@ package Employee;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
+
 import company.Company;
 import documents.Document;
 
@@ -30,7 +33,8 @@ public abstract class Employee {
 
 	@Override
 	public String toString() {
-		return "Emp [ID=" + personalID + ", name=" + name + ", salary=" + salary + "]\n";
+		return "	Employee [personalID=" + personalID + ", name=" + name + ", salary=" + salary + ", newDocs="
+				+ newDocs + "]\n";
 	}
 
 	public int getPersonalID() {
@@ -58,11 +62,30 @@ public abstract class Employee {
 	}
 
 	public void doWork() {
-		// TO DO
+		for (Iterator<Document> it = newDocs.iterator(); it.hasNext();) {
+			Document document = it.next();
+			System.out.print("Employee " + this.name + " processes a document - " + document.getName() + ": ");
+			int errorChance = document.getComplexity() / this.errorPossibility;
+			if (document.isSecret()) {
+				errorChance += 8;
+			}
+			if (new Random().nextInt(40) < errorChance) {
+				wrongDocs.add(document);
+				System.out.println("failed!");
+			} else {
+				finishedDocs.add(document);
+				System.out.println("successfully!");
+			}
+			it.remove();
+		}
+		printReport();
 	}
 
 	private void printReport() {
-		// TO DO
+		System.out.println("	REPORT:");
+		System.out.println("	" + this.name + " was wrong " + wrongDocs.size()
+				+ " documents and processed successfully " + finishedDocs.size() + " ones.");
+		System.out.println("	It makes a total of " + (wrongDocs.size() + finishedDocs.size()) + " documents.");
 	}
 
 	public boolean addDocument(Document document) {

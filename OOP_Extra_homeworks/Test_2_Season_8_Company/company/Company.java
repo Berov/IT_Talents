@@ -1,9 +1,12 @@
 package company;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Scanner;
 import Employee.Employee;
@@ -25,8 +28,12 @@ public class Company {
 	public static final double MIDDLE_SALARY = 2000; // lv
 	public static final double JUNIOR_SALARY = 1450; // lv
 	private String name;
-	private HashMap<Departements, LinkedHashMap<Integer, Employee>> company = new HashMap<Departements, LinkedHashMap<Integer, Employee>>();
-	private HashSet<Document> newDocuments = new HashSet<Document>();
+	private HashMap<Departements, LinkedHashMap<Integer, Employee>> company = new HashMap<Departements, LinkedHashMap<Integer, Employee>>(); // MAKE
+																																				// IT
+																																				// PRIVATE!!!
+	private LinkedList<Document> newDocuments = new LinkedList<Document>(); // MAKE
+																			// IT
+																			// PRIVATE!!!
 	Scanner sc = new Scanner(System.in);
 
 	public Company(String name) {
@@ -72,11 +79,29 @@ public class Company {
 	}
 
 	public void work() {
-		for (Iterator it = newDocuments.iterator(); it.hasNext();) {
-		
-
+		// puts documents to employees
+		while (newDocuments.size() > 0) {
+			for (Entry<Departements, LinkedHashMap<Integer, Employee>> e : company.entrySet()) {
+				for (Entry<Integer, Employee> e2 : e.getValue().entrySet()) {
+					if (newDocuments.size() > 0) {
+						if (e2.getValue().addDocument(newDocuments.getLast())) {
+							System.out.println("Big Boss gives to " + e2.getValue().getName() + " the task - "
+									+ newDocuments.getLast().getName() + "!");
+							newDocuments.removeLast();
+						}
+					}
+				}
+			}
 		}
+		
+		System.out.println("\nLet's work!");
 
+		// let's work
+		for (Entry<Departements, LinkedHashMap<Integer, Employee>> e : company.entrySet()) {
+			for (Entry<Integer, Employee> e2 : e.getValue().entrySet()) {
+				e2.getValue().doWork();
+			}
+		}
 	}
 
 	public void printFinishedTasks() {

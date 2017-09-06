@@ -10,11 +10,11 @@ public class Demo {
 
 		// create company
 		Company company = new Company("Happy Java Developement-2017");
+		System.out.println();
 
 		// create random 20 employees
 		for (int i = 0; i < 20; i++) {
-			company.addNewEmployee(Util.nameGenerator(),
-					Company.Departements.values()[new Random().nextInt(Company.Departements.values().length)]);
+			company.addNewEmployee(Util.nameGenerator(), Company.Departements.values()[new Random().nextInt(Company.Departements.values().length)]);
 		}
 
 		// create 50 random documents
@@ -22,9 +22,7 @@ public class Demo {
 			company.addTask(new Document(Util.documentGenerator(), (new Random().nextInt(20) + 1), new Random().nextBoolean()));
 		}
 		company.work();
-		
-		
-		// System.out.println(company.company);
+
 	}
 
 }
