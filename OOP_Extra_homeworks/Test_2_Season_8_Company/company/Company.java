@@ -28,12 +28,8 @@ public class Company {
 	public static final double MIDDLE_SALARY = 2000; // lv
 	public static final double JUNIOR_SALARY = 1450; // lv
 	private String name;
-	private HashMap<Departements, LinkedHashMap<Integer, Employee>> company = new HashMap<Departements, LinkedHashMap<Integer, Employee>>(); // MAKE
-																																				// IT
-																																				// PRIVATE!!!
-	private LinkedList<Document> newDocuments = new LinkedList<Document>(); // MAKE
-																			// IT
-																			// PRIVATE!!!
+	private HashMap<Departements, LinkedHashMap<Integer, Employee>> company = new HashMap<Departements, LinkedHashMap<Integer, Employee>>(); // MAKE IT PRIVATE!!!
+	private LinkedList<Document> newDocuments = new LinkedList<Document>(); // MAKE  IT PRIVATE!!!
 	Scanner sc = new Scanner(System.in);
 
 	public Company(String name) {
