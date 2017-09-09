@@ -1,5 +1,7 @@
 package company.restaurant.employee;
 
+import order.Order;
+
 public class JuniorWaiter extends Waiter {
 
 	public JuniorWaiter(String name, double salary) {
@@ -10,11 +12,7 @@ public class JuniorWaiter extends Waiter {
 		// TO DO
 	}
 
-	@Override
-	public void doOrders() {
-		// TODO Auto-generated method stub
 
-	}
 
 	@Override
 	public void printReport() {
@@ -26,6 +24,14 @@ public class JuniorWaiter extends Waiter {
 	public void printProfit() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean doOrder(Order order) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(this.name +" accept the order - "+ order.getName());
+		return true;
 	}
 
 }

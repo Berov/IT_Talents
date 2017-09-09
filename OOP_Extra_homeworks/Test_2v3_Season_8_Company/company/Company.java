@@ -3,6 +3,7 @@ package company;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.Random;
 
 import company.restaurant.employee.Employee;
@@ -12,15 +13,15 @@ import company.restaurant.employee.NormalWaiter;
 import company.restaurant.employee.RobotManager;
 import company.restaurant.employee.SeniorWaiter;
 import company.restaurant.employee.Waiter;
+import order.Order;
 
 public class Company {
 
 	// ---------- restaurant names
 	enum RestaurantNames {
 
-		RESTAURANT1("", null), RESTAURANT2("", null), RESTAURANT3("Kamelia", null), RESTAURANT4("", null), RESTAURANT5(
-				"", null), RESTAURANT6("", null), RESTAURANT7("",
-						null), RESTAURANT8("", null), RESTAURANT9("", null), RESTAURANT10("", null);
+		RESTAURANT1("", null), RESTAURANT2("", null), RESTAURANT3("Kamelia", null), RESTAURANT4("", null), RESTAURANT5("", null), 
+		RESTAURANT6("", null), RESTAURANT7("", null), RESTAURANT8("", null), RESTAURANT9("", null), RESTAURANT10("", null);
 
 		private String restaurantName;
 		private Manager manager;
@@ -82,12 +83,11 @@ public class Company {
 	}
 
 	// --------- The restaurant-----------------
-	private class Restaurant {
-
-		private String name;
-
-		// tables list ???
-	}
+	// private class Restaurant {
+	//
+	// private String name;
+	//
+	// }
 
 	// --------------- the real Company ---------------
 	private String companyName;
@@ -133,10 +133,6 @@ public class Company {
 		return "";
 	}
 
-	// Да се назначи служител на дадена позиция в даден ресторант(по име на
-	// ресторанта). Ако ресторант с такова име не съществува все още, то първия
-	// назначен задължително трябва да е мениджър-смяна. (10%)
-
 	public void addEmployee(String newEmployeeName, String restaurantName) {
 		boolean hasRestaurant = false;
 
@@ -153,8 +149,8 @@ public class Company {
 		if (!hasRestaurant) {
 			System.out.println("There is not a restaurant \'" + restaurantName + "\'");
 
-			// if has free restaurant names - add it and add the new employee
-			// like Stuff Manager
+			// if has free restaurant names - add it and add the new employee as
+			// a Stuff Manager
 			boolean hasEmptyRestaurantName = false;
 
 			for (RestaurantNames restaurantNames : RestaurantNames.values()) {
@@ -169,7 +165,7 @@ public class Company {
 				}
 			}
 
-			// if has no free restaurant names
+			// if has no empty restaurant names
 			if (!hasEmptyRestaurantName) {
 				System.out.println("Sorry! Has no restaurant with name - \'" + restaurantName + "\'");
 				return;
@@ -177,7 +173,8 @@ public class Company {
 			return;
 		}
 
-		// if has a restaurant with this name - add new employee-random position
+		// if has a restaurant with this name - add new employee at random
+		// position
 		for (RestaurantNames restaurantNames : RestaurantNames.values()) {
 			if (restaurantNames.restaurantName.equals(restaurantName)) {
 				Employee newEmployee = null;
@@ -204,6 +201,44 @@ public class Company {
 
 		}
 
+	}
+
+	public void addOrder(String restaurant, Order order) {
+		// check order restaurant
+		// HashMap<RestaurantNames, HashSet<Employee>> restaurants;
+		for (Entry<RestaurantNames, HashSet<Employee>> e : restaurants.entrySet()) {
+			if (e.getKey().getRestaurantName().equals(restaurant)) {//-------------------------------
+				System.out.println("There is a restaurant with name \'" + restaurant + "\'");
+				while (true) {
+					// podai na sluchaen kelner porachkata
+					// -------------------
+					Iterator<Employee> it = e.getValue().iterator();
+					for (int i = 0; i < new Random().nextInt(e.getValue().size()); i++) {
+						it.next();
+					}
+					if (it.hasNext()) {
+						Employee emp = it.next();
+						//
+						if (!(emp instanceof Manager)) {
+							// ako e mladshi - random prehvarli porachka
+							if (emp instanceof JuniorWaiter) {
+								if (new Random().nextBoolean()) {
+									((JuniorWaiter) emp).doOrder(order);
+								} else {
+									((JuniorWaiter) emp).transferOrderToOther();
+								}
+							} else {
+								((Waiter) emp).doOrder(order);
+							}
+							return;
+						}
+					}
+				}
+			} else {
+				System.out.println("Sorry! There is no a restaurant with name \'" + restaurant + "\'");
+			}
+		}
+		return;
 	}
 
 	// Да се обработи заплатите. Фирмата трябва да раздаде заплати на

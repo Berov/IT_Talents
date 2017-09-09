@@ -1,6 +1,10 @@
 package demo;
 
+import java.util.Random;
+
 import company.Company;
+import order.Order;
+import order.OrdinaryOrder;
 
 public class Demo {
 
@@ -21,8 +25,10 @@ public class Demo {
 		System.out.println("\nAfter assignments the company looks like:");
 		System.out.println(fastFood.toString() + "\n");
 
-		// ресторантите да бъдат начислени на регионалните
-		// мениджъри
+		// Point 3 - add regional managers
+
+		Order order = new OrdinaryOrder(new Random().nextDouble() * 30 + 2, new Random().nextInt(20) + 1, new Random().nextInt(30) + 1, new Random().nextInt(120) + 1);
+		fastFood.addOrder(Util.restaurantNamesGenerator(), order);
 
 		// да се генерират по 50 поръчки на ресторант с
 		// най-различна сложност и като 10 от тях да бъдат поръчки

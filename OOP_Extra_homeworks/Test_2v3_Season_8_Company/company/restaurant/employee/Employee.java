@@ -4,6 +4,8 @@ import company.Company.RegionalManager;
 import company.Company.StuffManager;
 
 public abstract class Employee {
+	private static int ID=0;
+	protected int personalID;
 	protected String name;
 	protected double salary; //month salary
 	protected double cash;
@@ -12,6 +14,7 @@ public abstract class Employee {
 		// TO DO validate!
 		this.name = name;
 		this.salary = salary;
+		this.personalID=ID++;
 	}
 
 	public abstract void printReport();

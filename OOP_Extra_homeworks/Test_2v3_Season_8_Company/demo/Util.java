@@ -18,7 +18,7 @@ public class Util {
 
 	public static String restaurantNamesGenerator() {
 		String[] name = { "Rock'n'Roll", "Super Fast Breakfast", "The Lake", "Jolly Roger", "Tiffany", "Nu pogodi",
-				"The Old Pirate", "Pancharevo", "Sofia Food", "The Black Sea", "Coffee" , "Lunch for IT's"};
+				"The Old Pirate", "Pancharevo", "Sofia Food", "The Black Sea", "Coffee", "Lunch for IT's" };
 		return name[r.nextInt(name.length)];
 	}
 
